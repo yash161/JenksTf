@@ -12,7 +12,7 @@ pipeline {
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                     ]
                 ]) {
-                    sh 'aws s3api create-bucket --bucket testwowochitf2 --region us-east-1'
+                    sh 'aws s3api create-bucket --bucket testwowochitf2121232 --region us-east-1'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                     ]
                 ]) {
-                   sh 'aws s3api create-bucket --bucket testwowochitf1212 --create-bucket-configuration LocationConstraint=eu-west-1'
+                   sh 'aws s3api create-bucket --bucket testwowochitf1212yash --create-bucket-configuration LocationConstraint=eu-west-1'
                 }
             }
         }
