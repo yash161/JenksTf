@@ -2,19 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+       
+        stage('Deploy First') {
             steps {
-                git branch: 'main', credentialsId: '<CREDS>', url: 'https://github.com/sumeetninawe/tf-tuts'
+                sh 'aws s3api create-bucket --bucket testwowochitf --region us-east-1'
             }
         }
-        stage('Terraform init') {
+        stage('Deploy Second') {
             steps {
-                sh 'terraform init'
-            }
-        }
-        stage('Terraform apply') {
-            steps {
-                sh 'terraform apply --auto-approve'
+                sh 'aws s3api create-bucket --bucket testwowochitfr --region us-west-1'
             }
         }
         
