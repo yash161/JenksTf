@@ -12,8 +12,8 @@ pipeline {
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                     ]
                 ]) {
-                    sh 'aws s3api create-bucket --bucket testwowochitfnew1 --region us-east-1'
-                    sh 'aws s3api create-bucket --bucket testwowochitfdasdasds --region us-west-1'
+                    sh 'aws s3api create-bucket --bucket testwowochitf2 --region us-east-1'
+                    sh 'aws s3api create-bucket --bucket testwowochitf12 --region us-west-1'
                 }
             }
         }
