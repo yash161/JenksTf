@@ -1,25 +1,22 @@
-resource "aws_api_gateway_rest_api" "MyDemoAPI" {
-   name        = "si_backend_api"
-  description = "This is my API for demonstration purposes"
+provider "aws" {
+  region = "us-west-1"  
+  access_key = "AKIAYB64KN76OK4L4IIA"
+  secret_key = "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"
 }
 
-
-
-data "aws_api_gateway_rest_api" "MyDemoAPI" {
-    filter {
-        name = "si_backend_api"
-
-    }
-
- 
+resource "aws_s3_bucket" "bucket1" {
+  bucket = "my-bucket1"
+  acl    = "private"
+  // Add more bucket configurations as needed
 }
 
-# the following is_ec2_instance_exist local should return value 1 if resource exists
-locals {
-  is_ec2_instance_exist = "$${data.aws_instance.myawsinstance.public_ip)}"
+provider "aws" {
+  region = "eu-east-1"  // Change this to the desired region for the second bucket
+  access_key = "AKIAYB64KN76OK4L4IIA"
+  secret_key = "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"
 }
 
-# Here is the output block printing the existence of the resource onto the console
-output "fetched_info_from_aws" {
-  value = data.aws_instance.myawsinstance.public_ip
+resource "aws_s3_bucket" "bucket2" {
+  bucket = "my-bucket2"
+  acl    = "private"
 }
